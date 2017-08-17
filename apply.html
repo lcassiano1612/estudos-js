@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Apply Javascript</title>
+</head>
+<body>
+	<script>
+
+	let cartela = [10, 20, 30, 40 , 50];
+
+	function criarSortei(){
+
+		for(i = 0; i < arguments.length; i++){
+
+			if(cartela.indexOf(arguments[i])){
+
+				console.log("O numero "+arguments[i]+" tem na cartela");
+
+			}else{
+
+				console.log("O numero "+arguments[i]+" não tem na cartela");
+
+			}
+		}
+
+	}
+
+	criarSortei.apply(cartela, [40, 20, 30]);
+
+	</script>
+</body>
+</html>
