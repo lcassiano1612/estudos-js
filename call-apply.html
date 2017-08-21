@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+
+		// referencia
+		// https://medium.com/tableless/o-que-todo-desenvolvedor-javascript-precisa-saber-2cc33daedb86
+
+		// ENTENDENDO CALL E APPLY
+		
+		// Com a Apply e Call é possivel chamar um metodo sem declarar uma variavel dentro da função.
+		// o objeto passado no metodo com apply vai ser referenciado via this
+
+		let myName = {name: 'Lucas', lastName: 'Oliveira'};
+
+		function showFullName(){
+
+			console.log(this.name + " " + this.lastName);
+
+		}
+
+		showFullName.apply(myName);
+		showFullName.call(myName);
+
+		// a diferença entre eles é o segundo parametro passado
+
+		let myAge = { age: 28 };
+
+		function isOlder(){
+
+			for(let i = 0; i < arguments.length; i++){
+
+				if(this.age < arguments[i]) console.log(arguments[i]);
+
+			}
+
+		}
+
+		isOlder.apply(myAge, [10, 20, 30]);
+		isOlder.call(myAge, 10, 20, 30);
+
+		// no apply é preciso passar um array
+		// no call tenho que passar varios parametros
+
+
+		let notas = {carlos: 50, junior: 30, tercio: 70};
+
+		function numerosIguais(){
+
+			for(i = 0;i < arguments[i]; i++){
+
+				if(this.carlos == arguments[i]){
+
+				console.log("Carlos tem alguns dos numeros, "+arguments[i]+"!");
+
+				}
+
+				if(this.junior == arguments[i]){
+
+					console.log("Junior tem alguns dos numeros, "+arguments[i]+"!");
+
+				}
+
+				if(this.tercio == arguments[i]){
+
+					console.log("Tercio tem alguns dos numeros, "+arguments[i]+"!");
+
+				}
+
+			}
+
+		}
+
+		media = [30, 70, 50];
+
+		numerosIguais.apply(notas, media);
+		numerosIguais.call(notas, 30, 70);
+		
+	</script>
+</body>
+</html>
